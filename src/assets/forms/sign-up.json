@@ -1,0 +1,93 @@
+[
+  {
+    "key": "name",
+    "type": "input",
+    "focus": true,
+    "templateOptions": {
+      "type": "name",
+      "required": true,
+      "label": "Name: ",
+      "placeholder": "John",
+      "minLength": 5
+    }
+  },
+  {
+    "key": "surname",
+    "type": "input",
+    "templateOptions": {
+      "type": "number",
+      "required": false,
+      "label": "Last Name: ",
+      "placeholder": "Smith"
+    }
+  },
+  {
+    "key": "email",
+    "type": "input",
+    "templateOptions": {
+      "type": "email",
+      "required": true,
+      "label": "eMail: ",
+      "placeholder": "john@smith.com",
+      "validators": {
+        "validation": ["email"]
+      }
+    }
+  },
+  {
+    "key": "password",
+    "fieldMatch": {   },
+  "fieldGroup" : [
+  {
+    "key": "password",
+    "type": "input",
+    "templateOptions": {
+      "type": "password",
+      "label": "Password",
+      "placeholder": "Must be at least 3 characters",
+      "required": true,
+      "minLength": 3
+    }
+  },
+  {
+    "key": "passwordConfirm",
+    "type": "input",
+    "templateOptions": {
+      "type": "password",
+      "label": "Confirm Password",
+      "placeholder": "Please re-enter your password",
+      "required": true
+    }
+  }
+]
+  },
+  {
+    "key": "gender",
+    "type": "radio",
+    "defaultValue": "m",
+    "templateOptions": {
+      "description": "Select gender",
+      "required": true,
+      "label": "Gender",
+      "options": [
+        {
+          "label" : "Male",
+          "value": "m"
+        },
+        {
+          "label" : "Female",
+          "value": "f"
+        }
+      ]
+    }
+  },
+  {
+    "key": "terms",
+    "type": "checkbox",
+    "defaultValue": false,
+    "templateOptions": {
+      "label": "Agree to the terms and conditions",
+      "required": true
+    }
+  }
+]
