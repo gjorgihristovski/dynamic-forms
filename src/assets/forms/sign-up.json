@@ -30,36 +30,37 @@
       "label": "eMail: ",
       "placeholder": "john@smith.com",
       "validators": {
-        "validation": ["email"]
+        "validation": [
+          "email"
+        ]
       }
     }
   },
   {
     "key": "password",
-    "fieldMatch": {   },
-  "fieldGroup" : [
-  {
-    "key": "password",
-    "type": "input",
-    "templateOptions": {
-      "type": "password",
-      "label": "Password",
-      "placeholder": "Must be at least 3 characters",
-      "required": true,
-      "minLength": 3
-    }
-  },
-  {
-    "key": "passwordConfirm",
-    "type": "input",
-    "templateOptions": {
-      "type": "password",
-      "label": "Confirm Password",
-      "placeholder": "Please re-enter your password",
-      "required": true
-    }
-  }
-]
+    "fieldGroup": [
+      {
+        "key": "password",
+        "type": "input",
+        "templateOptions": {
+          "type": "password",
+          "label": "Password",
+          "placeholder": "Must be at least 3 characters",
+          "required": true,
+          "minLength": 3
+        }
+      },
+      {
+        "key": "passwordConfirm",
+        "type": "input",
+        "templateOptions": {
+          "type": "password",
+          "label": "Confirm Password",
+          "placeholder": "Please re-enter your password",
+          "required": true
+        }
+      }
+    ]
   },
   {
     "key": "gender",
@@ -71,11 +72,11 @@
       "label": "Gender",
       "options": [
         {
-          "label" : "Male",
+          "label": "Male",
           "value": "m"
         },
         {
-          "label" : "Female",
+          "label": "Female",
           "value": "f"
         }
       ]
@@ -88,6 +89,22 @@
     "templateOptions": {
       "label": "Agree to the terms and conditions",
       "required": true
+    }
+  },
+  {
+    "key": "datepicker",
+    "type": "input",
+    "templateOptions": {
+      "type": "date",
+      "label": "Datepicker",
+      "required": true
+    }
+  },
+  {
+    "type": "button",
+    "templateOptions": {
+      "text": "Click Function",
+      "onClick": "($event) => alert('You clicked me!')"
     }
   }
 ]

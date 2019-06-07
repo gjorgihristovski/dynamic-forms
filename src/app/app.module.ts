@@ -1,17 +1,19 @@
 import { HttpClientModule } from '@angular/common/http';
 import { FormControl, ReactiveFormsModule, ValidationErrors } from '@angular/forms';
-import { MatButtonModule } from '@angular/material';
+import { MatButtonModule, MatNativeDateModule } from '@angular/material';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormlyBootstrapModule } from '@ngx-formly/bootstrap';
 import { FormlyFieldConfig, FormlyModule } from '@ngx-formly/core';
 import { FormlyMaterialModule } from '@ngx-formly/material';
+import { FormlyMatDatepickerModule } from '@ngx-formly/material/datepicker';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SignUpComponent } from './component/sign-up/sign-up.component';
 import { SignUpService } from './service/sign-up.service';
+import { FormlyFieldButton } from './types/button-type.component';
 
 export function minlengthValidationMessages(err, field) {
   return `Should have at least ${field.templateOptions.minLength} characters`;
@@ -22,7 +24,7 @@ export function IpValidator(control: FormControl): ValidationErrors {
 }
 
 export function EmailValidator(control: FormControl): ValidationErrors {
-return /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(control.value) ? null : { 'email': true};
+  return /{[a-z0-9]+@[a-z0-9]+.[a-z]{2,}}/.test(control.value) ? null : { 'email': true };
 }
 
 export function EmailValidatorMessage(err, field: FormlyFieldConfig) {
@@ -36,7 +38,8 @@ export function IpValidatorMessage(err, field: FormlyFieldConfig) {
 @NgModule({
   declarations: [
     AppComponent,
-    SignUpComponent
+    SignUpComponent,
+    FormlyFieldButton
   ],
   imports: [
     BrowserAnimationsModule,
@@ -47,22 +50,38 @@ export function IpValidatorMessage(err, field: FormlyFieldConfig) {
     FormlyModule.forRoot(
       {
         validationMessages: [
-          {name: 'email', message: EmailValidatorMessage},
+          { name: 'email', message: EmailValidatorMessage },
           { name: 'ip', message: IpValidatorMessage },
           { name: 'required', message: 'This field is required' },
           { name: 'minlength', message: minlengthValidationMessages }
         ],
         validators: [
-          { name: 'ip', validation: IpValidator},
-          { name: 'email', validation: EmailValidator}
+          { name: 'ip', validation: IpValidator },
+          { name: 'email', validation: EmailValidator }
+        ],
+        types: [
+          {
+            name: 'button',
+            component: FormlyFieldButton,
+            wrappers: ['form-field'],
+            defaultOptions: {
+              templateOptions: {
+                btnType: 'default',
+                type: 'button',
+              },
+            },
+          },
         ]
       }
     ),
     FormlyMaterialModule,
     MatButtonModule,
-    FormlyBootstrapModule
+    FormlyBootstrapModule,
+    MatNativeDateModule,
+    FormlyMatDatepickerModule
   ],
   providers: [SignUpService],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}
