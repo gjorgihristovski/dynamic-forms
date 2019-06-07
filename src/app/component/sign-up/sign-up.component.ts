@@ -13,9 +13,15 @@ export class SignUpComponent implements OnInit {
   model: any = {};
   options: FormlyFormOptions = {};
   fields: FormlyFieldConfig[];
+  fieldsArray: any[];
 
   constructor(private signUpService: SignUpService) {
-    this.signUpService.getFields().subscribe(fields => this.fields = fields);
+    this.signUpService.getFields().subscribe((fields: any[]) => {
+      this.fields = fields;
+    fields.forEach((data) =>
+      console.log(JSON.parse(data))
+    );
+    });
   }
 
   ngOnInit() {
