@@ -1,5 +1,5 @@
 <form class="container-fluid" [formGroup]="form" (ngSubmit)="submit()">
   <formly-form [model]="model" [fields]="fields" [options]="options" [form]="form"></formly-form>
-  <button mat-raised-button type="submit" [disabled]="!form.valid">Submit</button>
-  <button mat-button type="button" (click)="options.resetModel()">Reset</button>
+  <button class="col-lg-1 col-lg-offset-2 btn-primary" type="submit" [disabled]="!form.valid">Submit</button>
+  <button class="col-lg-1 btn-link" type="button" (click)="options.resetModel()">Reset</button>
 </form>

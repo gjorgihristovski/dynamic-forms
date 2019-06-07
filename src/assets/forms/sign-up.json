@@ -83,7 +83,6 @@
     "type": "radio",
     "defaultValue": "m",
     "templateOptions": {
-      "description": "Select gender",
       "required": true,
       "label": "Gender",
       "options": [
@@ -110,7 +109,7 @@
   },
   {
     "className": "col-lg-12",
-    "template": "<hr /><div><strong>Other fields: </strong></div><hr /><br />"
+    "template": "<hr /><div><strong>Other fields: </strong></div><br />"
   },
   {
     "fieldGroupClassName": "row",

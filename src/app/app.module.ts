@@ -1,13 +1,10 @@
 import { HttpClientModule } from '@angular/common/http';
 import { FormControl, ReactiveFormsModule, ValidationErrors } from '@angular/forms';
-import { MatButtonModule, MatNativeDateModule } from '@angular/material';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormlyBootstrapModule } from '@ngx-formly/bootstrap';
 import { FormlyFieldConfig, FormlyModule } from '@ngx-formly/core';
-import { FormlyMaterialModule } from '@ngx-formly/material';
-import { FormlyMatDatepickerModule } from '@ngx-formly/material/datepicker';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -47,6 +44,7 @@ export function IpValidatorMessage(err, field: FormlyFieldConfig) {
     AppRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
+    FormlyBootstrapModule,
     FormlyModule.forRoot(
       {
         validationMessages: [
@@ -73,12 +71,7 @@ export function IpValidatorMessage(err, field: FormlyFieldConfig) {
           },
         ]
       }
-    ),
-    FormlyMaterialModule,
-    MatButtonModule,
-    FormlyBootstrapModule,
-    MatNativeDateModule,
-    FormlyMatDatepickerModule
+    )
   ],
   providers: [SignUpService],
   bootstrap: [AppComponent]
