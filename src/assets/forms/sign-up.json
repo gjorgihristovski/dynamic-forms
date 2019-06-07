@@ -1,27 +1,36 @@
 [
   {
-    "key": "name",
-    "type": "input",
-    "focus": true,
-    "templateOptions": {
-      "type": "name",
-      "required": true,
-      "label": "Name: ",
-      "placeholder": "John",
-      "minLength": 5
-    }
+    "fieldGroupClassName": "row",
+    "fieldGroup": [
+      {
+        "className": "col-lg-6",
+        "key": "firstName",
+        "type": "input",
+        "focus": true,
+        "templateOptions": {
+          "required": true,
+          "label": "Name: ",
+          "placeholder": "John",
+          "minLength": 5
+        }
+      },
+      {
+        "className": "col-lg-6",
+        "key": "lastName",
+        "type": "input",
+        "templateOptions": {
+          "required": false,
+          "label": "Last Name: ",
+          "placeholder": "Smith"
+        },
+        "expressionProperties": {
+          "templateOptions.disabled": "!model.firstName"
+        }
+      }
+    ]
   },
   {
-    "key": "surname",
-    "type": "input",
-    "templateOptions": {
-      "type": "number",
-      "required": false,
-      "label": "Last Name: ",
-      "placeholder": "Smith"
-    }
-  },
-  {
+    "className": "col-lg-12",
     "key": "email",
     "type": "input",
     "templateOptions": {
@@ -38,8 +47,10 @@
   },
   {
     "key": "password",
+    "fieldGroupClassName": "row",
     "fieldGroup": [
       {
+        "className": "col-lg-6",
         "key": "password",
         "type": "input",
         "templateOptions": {
@@ -51,6 +62,7 @@
         }
       },
       {
+        "className": "col-lg-6",
         "key": "passwordConfirm",
         "type": "input",
         "templateOptions": {
@@ -58,11 +70,15 @@
           "label": "Confirm Password",
           "placeholder": "Please re-enter your password",
           "required": true
+        },
+        "expressionProperties": {
+          "templateOptions.disabled": "!model.password"
         }
       }
     ]
   },
   {
+    "className": "col-lg-offset-4 col-lg-8",
     "key": "gender",
     "type": "radio",
     "defaultValue": "m",
@@ -83,6 +99,7 @@
     }
   },
   {
+    "className": "col-lg-3",
     "key": "terms",
     "type": "checkbox",
     "defaultValue": false,
@@ -92,19 +109,40 @@
     }
   },
   {
-    "key": "datepicker",
-    "type": "input",
-    "templateOptions": {
-      "type": "date",
-      "label": "Datepicker",
-      "required": true
-    }
+    "className": "col-lg-12",
+    "template": "<hr /><div><strong>Other fields: </strong></div><hr /><br />"
   },
   {
-    "type": "button",
-    "templateOptions": {
-      "text": "Click Function",
-      "onClick": "alert('You clicked me!')"
-    }
+    "fieldGroupClassName": "row",
+    "fieldGroup": [
+      {
+        "className": "col-lg-6",
+        "key": "datepicker",
+        "type": "input",
+        "templateOptions": {
+          "type": "date",
+          "label": "Datepicker",
+          "required": true
+        }
+      },
+      {
+        "className": "col-lg-offset-4 col-lg-1",
+        "key": "button1",
+        "type": "button",
+        "templateOptions": {
+          "text": "Click Function",
+          "onClick": "alert('You clicked me!')"
+        }
+      },
+      {
+        "className": "col-lg-1",
+        "key": "button2",
+        "type": "button",
+        "templateOptions": {
+          "text": "Click Function",
+          "onClick": "alert('The Other click!')"
+        }
+      }
+    ]
   }
 ]

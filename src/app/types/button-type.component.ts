@@ -14,6 +14,7 @@ import { FieldType } from '@ngx-formly/core';
 export class FormlyFieldButton extends FieldType {
   onClick($event) {
     if (this.to.onClick) {
+      console.log($event);
       setTimeout(this.to.onClick, 1);
     }
   }
